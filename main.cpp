@@ -87,18 +87,22 @@ draw(GLFWwindow* _window, double _currentTime) {
   glm::vec4 ray;
 
   // Mapiping a pixel (i, j) (column, row) to coord (tao, sigma) in viewport
-  /*for (int i = 0; i < g_width; i++) { // traverses i columns 
-    for (int j = 0; j < g_height, j++) { // traverses j rows
-      tao = 0 + (g_width/g_width)(i + 0.5)
-      sigma = 0 + (g_height/g_height)(j + 0.5)
+  for (int i = 0; i < g_width; i++) { // traverses i columns 
+    for (int j = 0; j < g_height; j++) { // traverses j rows
+      //tao = 0 + (g_width/g_width)(i + 0.5)
+      //sigma = 0 + (g_height/g_height)(j + 0.5)
+      int k = i*g_height+j;
+      g_frame[k] = glm::vec4(float(rand())/RAND_MAX, float(rand())/RAND_MAX,
+                           float(rand())/RAND_MAX, 1.f);
+
     }
   }
-  */
+  
 
 
-  for(int i = 0; i < g_width*g_height; ++i)
-    g_frame[i] = glm::vec4(float(rand())/RAND_MAX, float(rand())/RAND_MAX,
-                           float(rand())/RAND_MAX, 1.f);
+  //for(int i = 0; i < g_width*g_height; ++i)
+    //g_frame[i] = glm::vec4(float(rand())/RAND_MAX, float(rand())/RAND_MAX,
+      //                     float(rand())/RAND_MAX, 1.f);
 
   glDrawPixels(g_width, g_height, GL_RGBA, GL_FLOAT, g_frame.get());
 }
